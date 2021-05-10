@@ -2,12 +2,12 @@
 <package >
 	<metadata>
 		<id>RestService</id>
-		<version>0.9.5</version>
+		<version>0.9.6</version>
 		<authors>Wynand Cronje</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<license type="expression">MIT</license>
 		<projectUrl>https://github.com/WynieCronje/RestService</projectUrl>
-		<iconUrl>https://raw.githubusercontent.com/WynieCronje/RestService/main/rest-service.svg</iconUrl>
+		<iconUrl>https://raw.githubusercontent.com/WynieCronje/RestService/main/rest-service.png</iconUrl>
 		<description>Rest Service to decrease boilerplate code when dealing with API calls</description>
 		<releaseNotes>Added netstandard support</releaseNotes>
 		<copyright>$copyright$</copyright>
