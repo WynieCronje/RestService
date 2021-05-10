@@ -65,8 +65,7 @@ namespace RestService
 
 			var httpClient = ResolveHttpClient(options);
 
-			httpRequest.Headers.Add(CorrelationIdDefaults.CorrelationIdHeader, GetCorrelationId(options));
-			httpRequest.Headers.Add(CorrelationIdDefaults.CorrelationIndexHeader, GetCorrelationIndex());
+			ApplyHeaderSettings(httpRequest, actionOptions);
 
 			return await httpClient.SendAsync(httpRequest);
 		}
@@ -86,8 +85,7 @@ namespace RestService
 
 			using (var httpRequest = new HttpRequestMessage(method, apiAction))
 			{
-				httpRequest.Headers.Add(CorrelationIdDefaults.CorrelationIdHeader, GetCorrelationId(options));
-				httpRequest.Headers.Add(CorrelationIdDefaults.CorrelationIndexHeader, GetCorrelationIndex());
+				ApplyHeaderSettings(httpRequest, actionOptions);
 
 				if (requestBody != null)
 				{
@@ -200,6 +198,29 @@ namespace RestService
 
 			return string.IsNullOrWhiteSpace(clientName) ? clientFactory.CreateClient() : clientFactory.CreateClient(clientName);
 		}
+
+		private void ApplyHeaderSettings(HttpRequestMessage httpRequest, RestActionOptions options)
+		{
+			if (config.EnableCorrelationId)
+			{
+				httpRequest.Headers.Add(CorrelationIdDefaults.CorrelationIdHeader, GetCorrelationId(options));
+				httpRequest.Headers.Add(CorrelationIdDefaults.CorrelationIndexHeader, GetCorrelationIndex());
+			}
+
+			if (options?.AuthorizationHeader != null)
+			{
+				httpRequest.Headers.Authorization = options.AuthorizationHeader;
+			}
+
+			if (options?.Headers.Any() == true)
+			{
+				foreach (var header in options.Headers.AsEnumerable())
+				{
+					httpRequest.Headers.Add(header.Key, header.Value);
+				}
+			}
+		}
+
 		#endregion
 	}
 }

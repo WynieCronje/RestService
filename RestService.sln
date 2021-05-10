@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{3E3FDFE4-9C25-4A2D-99DA-67492E5125F0}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Package.nuspec = Package.nuspec
 		rest-service.png = rest-service.png
 		rest-service.svg = rest-service.svg
 	EndProjectSection
