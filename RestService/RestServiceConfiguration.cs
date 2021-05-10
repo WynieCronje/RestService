@@ -20,7 +20,7 @@ namespace RestService
         /// <summary>
         /// If forwarding and or adding of Correlation headers should be enabled (X-Correlation-Id) and (X-Correlation-Index)
         /// These values are automatically ingested from <see cref="IHttpContextAccessor"/>
-        /// services.AddHttpContextAccessor(); should in Startup.cs
+        /// services.AddHttpContextAccessor(); should be in Startup.cs
         /// </summary>
         public bool EnableCorrelationId { get; set; } = false;
     }
