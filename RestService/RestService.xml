@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RestService</name>
+    </assembly>
+    <members>
+        <member name="F:RestService.CorrelationIdDefaults.CorrelationIdHeader">
+            <summary>
+            The default Correlation Header
+            </summary>
+        </member>
+        <member name="F:RestService.CorrelationIdDefaults.CorrelationIndexHeader">
+            <summary>
+            The default Correlation Index Header
+            </summary>
+        </member>
+        <member name="M:RestService.IRestService.DeleteAsync``1(System.Uri,RestService.RestActionOptions)">
+            <summary>
+            Adds CorrelationId. Throws <see cref="T:RestService.RestResponseException"/> 
+            </summary>
+        </member>
+        <member name="M:RestService.IRestService.GetAsync``1(System.Uri,RestService.RestActionOptions)">
+            <summary>
+            Adds CorrelationId. Throws <see cref="T:RestService.RestResponseException"/> 
+            </summary>
+        </member>
+        <member name="M:RestService.IRestService.PostAsync``2(System.Uri,``1,RestService.RestActionOptions)">
+            <summary>
+            Adds CorrelationId. Throws <see cref="T:RestService.RestResponseException"/> 
+            </summary>
+        </member>
+        <member name="M:RestService.IRestService.PostAsync``1(System.Uri,System.Object,RestService.RestActionOptions)">
+            <summary>
+            Adds CorrelationId. Throws <see cref="T:RestService.RestResponseException"/> 
+            </summary>
+        </member>
+        <member name="M:RestService.IRestService.PutAsync``2(System.Uri,``1,RestService.RestActionOptions)">
+            <summary>
+            Adds CorrelationId. Throws <see cref="T:RestService.RestResponseException"/> 
+            </summary>
+        </member>
+        <member name="M:RestService.IRestService.PutAsync``1(System.Uri,System.Object,RestService.RestActionOptions)">
+            <summary>
+            Adds CorrelationId. Throws <see cref="T:RestService.RestResponseException"/> 
+            </summary>
+        </member>
+        <member name="M:RestService.IRestService.SendAsync(System.Net.Http.HttpRequestMessage,RestService.RestActionOptions)">
+            <summary>
+            Only adds CorrelationId, No Exceptions are thrown
+            </summary>
+        </member>
+        <member name="P:RestService.RestActionOptions.SerializerSettings">
+            <summary>
+            JsonSerializerSettings Overide 
+            </summary>
+        </member>
+        <member name="P:RestService.RestActionOptions.HttpClientName">
+            <summary>
+            Targets an HttpClient registered with <see cref="T:System.Net.Http.IHttpClientFactory"/> it overides the <see cref="P:RestService.RestServiceConfiguration.DefaultHttpClientName"/> 
+            </summary>
+        </member>
+        <member name="P:RestService.RestActionOptions.CorrelationId">
+            <summary>
+            Takes preference as the CorrelationId used
+            </summary>
+        </member>
+        <member name="P:RestService.RestActionOptions.ValidStatusCodes">
+            <summary>
+            Status Codes other than the 200 range that should not throw exceptions
+            </summary>
+        </member>
+        <member name="P:RestService.RestActionOptions.Headers">
+            <summary>
+            Additional Headers to Add (If not added by the HTTP Client)
+            </summary>
+        </member>
+        <member name="P:RestService.RestActionOptions.AuthorizationHeader">
+            <summary>
+            Authorization Header (If not added by the HTTP Client)
+            </summary>
+        </member>
+        <member name="M:RestService.RestActionOptions.SetValidStatusCodes(System.Net.HttpStatusCode[])">
+            <summary>
+            Status Codes other than the 200 range that should not throw exceptions
+            </summary>
+        </member>
+        <member name="P:RestService.RestServiceConfiguration.CorrelationIdPrefix">
+            <summary>
+            Prefix when generating a new CorrelationId (When it does not exist as a header on the <see cref="T:Microsoft.AspNetCore.Http.IHttpContextAccessor"/>) Typically the Apps name
+            Defaults to Assembly.GetCallingAssembly().GetName().Name
+            </summary>
+        </member>
+        <member name="P:RestService.RestServiceConfiguration.DefaultHttpClientName">
+            <summary>
+            Name used to register global HttpClient from <see cref="M:System.Net.Http.IHttpClientFactory.CreateClient(System.String)"/>.
+            </summary>
+        </member>
+        <member name="P:RestService.RestServiceConfiguration.EnableCorrelationId">
+            <summary>
+            If forwarding and or adding of Correlation headers should be enabled (X-Correlation-Id) and (X-Correlation-Index)
+            These values are automatically ingested from <see cref="T:Microsoft.AspNetCore.Http.IHttpContextAccessor"/>
+            services.AddHttpContextAccessor(); should be in Startup.cs
+            </summary>
+        </member>
+        <member name="M:RestService.RestServiceExtensions.AddRestService(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{RestService.RestServiceConfiguration})">
+            <summary>
+            Adds a <see cref="T:RestService.IRestService"/> service. Please refer to <see cref="T:RestService.RestServiceConfiguration"/> for usage
+            </summary>
+        </member>
+    </members>
+</doc>

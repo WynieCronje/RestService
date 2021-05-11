@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>RestService</id>
-		<version>0.9.6</version>
+		<version>0.9.7-local</version>
 		<authors>Wynand Cronje</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<license type="expression">MIT</license>
